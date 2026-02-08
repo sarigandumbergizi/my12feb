@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untukmu, Valentineku ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Outfit:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Overlay untuk memastikan interaksi user (Play Music/Video policy) -->
+    <div id="start-overlay" class="overlay">
+        <div class="content">
+            <h1>Special Gift For You ❤️</h1>
+            <p>Klik tombol di bawah ini untuk membuka...</p>
+            <button id="start-btn" class="btn-heart"><i class="fas fa-heart"></i> Buka</button>
+        </div>
+    </div>
+
+    <!-- SECTION 1: Intro Video -->
+    <section id="intro" class="hidden">
+        <div class="video-container">
+            <!-- Ganti 'assets/video/intro.mp4' dengan file video kamu -->
+            <video id="intro-video" playsinline>
+                <source src="assets/video/intro.mp4" type="video/mp4">
+                Browser kamu tidak mendukung tag video.
+            </video>
+            <button id="skip-btn" class="btn-small">Lewati Intro <i class="fas fa-forward"></i></button>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Slideshow Foto -->
+    <section id="slideshow" class="hidden">
+        <div class="slideshow-container">
+            <!-- Foto akan di-generate via JS atau bisa manual di sini -->
+            <div id="photo-wrapper">
+                <!-- Contoh placeholder -->
+                <img src="assets/photos/photo1.jpg" alt="Moment Kita" class="active">
+            </div>
+        </div>
+        <div class="controls">
+            <p class="caption">Kenangan kita... ❤️</p>
+        </div>
+        <!-- Musik Slideshow -->
+        <audio id="music-slideshow" loop>
+            <source src="assets/music/slideshow_bg.mp3" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <!-- SECTION 3: Pesan / Message -->
+    <section id="message" class="hidden">
+        <div class="message-container">
+            <div class="envelope">
+                <div class="heart-seal"><i class="fas fa-heart"></i></div>
+                <div class="letter">
+                    <h1>Happy Valentine's Day Sayang! 🌹</h1>
+                    <p class="typewriter-text">
+                        Aku sangat bersyukur memilikimu. Terima kasih untuk semua momen indah yang telah kita lalui
+                        bersama selama satu tahun ini.
+                        Semoga kita selalu bersama selamanya. I Love You! ❤️
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Musik Akhir -->
+        <audio id="music-finale" loop>
+            <source src="assets/music/finale_bg.mp3" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
