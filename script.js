@@ -50,8 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
         'assets/photos/photo31.jpg',
         'assets/photos/photo32.jpg',
         'assets/photos/photo33.jpg',
-        'assets/photos/photo34.jpg',
-        'assets/photos/photo35.jpg',
         'assets/photos/photo1.jpg',
         'assets/photos/photo2.jpg',
         'assets/photos/photo3.jpg',
@@ -85,8 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
         'assets/photos/photo31.jpg',
         'assets/photos/photo32.jpg',
         'assets/photos/photo33.jpg',
-        'assets/photos/photo34.jpg',
-        'assets/photos/photo35.jpg',
         'assets/photos/photo1.jpg',
         'assets/photos/photo2.jpg',
         'assets/photos/photo3.jpg',
@@ -95,12 +91,18 @@ document.addEventListener("DOMContentLoaded", () => {
         'assets/photos/photo6.jpg',
         'assets/photos/photo7.jpg',
         'assets/photos/photo8.jpg',
-        'assets/photos/photo9.jpg',
+        'assets/photos/photo9.jpg',
+        'assets/photos/photo10.jpg',
+        'assets/photos/photo11.jpg',
+        'assets/photos/photo12.jpg',
+        'assets/photos/photo13.jpg'
         // Tambahkan sebanyak yang dimau
     ];
     let currentPhotoIndex = 0;
     const photoDuration = 3000; // Durasi per foto dalam ms (3 detik)
     let slideshowInterval;
+    let balloonInterval;
+    let heartInterval;
 
     // --- Steps ---
 
@@ -160,6 +162,9 @@ document.addEventListener("DOMContentLoaded", () => {
             photoWrapper.appendChild(img);
         });
 
+        // Start animations
+        startAnimations();
+
         // Loop foto
         const images = photoWrapper.querySelectorAll('img');
 
@@ -172,6 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 // Slideshow selesai
                 clearInterval(slideshowInterval);
+                stopAnimations();
                 endSlideshow();
             }
         }, photoDuration);
@@ -205,5 +211,47 @@ document.addEventListener("DOMContentLoaded", () => {
         musicFinale.play();
 
         // Animasi typewriter opsional atau animasi CSS sudah cukup
+    }
+
+    // --- Background Animations ---
+    function startAnimations() {
+        // Balon setiap 800ms
+        balloonInterval = setInterval(createBalloon, 800);
+        // Love setiap 600ms
+        heartInterval = setInterval(createHeart, 600);
+    }
+
+    function stopAnimations() {
+        clearInterval(balloonInterval);
+        clearInterval(heartInterval);
+        // Hapus elemen sisa
+        document.querySelectorAll('.balloon, .floating-heart').forEach(el => el.remove());
+    }
+
+    function createBalloon() {
+        const balloon = document.createElement('div');
+        balloon.classList.add('balloon');
+        balloon.innerText = '🎈';
+        balloon.style.left = Math.random() * 100 + 'vw';
+        balloon.style.animationDuration = (Math.random() * 2 + 4) + 's'; // 4-6s
+        slideshowSection.appendChild(balloon);
+
+        setTimeout(() => {
+            balloon.remove();
+        }, 6000);
+    }
+
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('floating-heart');
+        heart.innerHTML = '<i class="fas fa-heart"></i>';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = Math.random() * 100 + 'vh';
+        heart.style.animationDuration = (Math.random() * 2 + 2) + 's'; // 2-4s
+        slideshowSection.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 4000);
     }
 });
