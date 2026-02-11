@@ -37,6 +37,21 @@ document.addEventListener("DOMContentLoaded", () => {
         'assets/photos/photo18.jpg',
         'assets/photos/photo19.jpg',
         'assets/photos/photo20.jpg'
+        'assets/photos/photo21.jpg',
+        'assets/photos/photo22.jpg',
+        'assets/photos/photo23.jpg',
+        'assets/photos/photo24.jpg',
+        'assets/photos/photo25.jpg',
+        'assets/photos/photo26.jpg',
+        'assets/photos/photo27.jpg',
+        'assets/photos/photo28.jpg',
+        'assets/photos/photo29.jpg',
+        'assets/photos/photo30.jpg',
+        'assets/photos/photo31.jpg',
+        'assets/photos/photo32.jpg',
+        'assets/photos/photo33.jpg',
+        'assets/photos/photo34.jpg',
+        'assets/photos/photo35.jpg
         // Tambahkan sebanyak yang dimau
     ];
     let currentPhotoIndex = 0;
